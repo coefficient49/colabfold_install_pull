@@ -8,6 +8,14 @@ cp project_install/* .
 bash install.sh
 ```
 
+make sure your AWS CLI is setup correctly
+
+run
+```python
+aws configure
+```
+
+
 for running MSA on EC2
 ```bash
 source init.profile
