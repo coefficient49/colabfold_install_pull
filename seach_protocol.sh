@@ -1,3 +1,9 @@
+
+FILESLEFT=`aws s3 ls jchen-af-storage/fastas_new/ | awk 'length($4)>0 {print$4}}' | wc -l`
+
+while (($FILESLEFT > 0))
+do
+
 ## getting file from s3
 FILE=`aws s3 ls s3://jchen-af-storage/fastas_new/ | awk 'length($4) >0 {print$4}' | head -n 1`
 
@@ -23,3 +29,8 @@ mv msas/$BASENAME/0.a3m msas/$BASENAME/$BASENAME.a3m
 
 ## upload to s3 for another ec2 instance to process 
 aws s3 mv msas/$BASENAME/$BASENAME.a3m s3://jchen-af-storage/msa_new/$BASENAME.a3m
+
+
+FILESLEFT=`aws s3 ls jchen-af-storage/fastas_new/ | awk 'length($4)>0 {print$4}}' | wc -l`
+
+done
