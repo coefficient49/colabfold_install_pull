@@ -38,6 +38,12 @@ sed -i -e "s#appdirs.user_cache_dir(__package__ or \"colabfold\")#\"${COLABFOLDD
 # remove cache directory
 rm -rf __pycache__
 
+sudo apt install unzip
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+
 # start downloading weights
 cd ${COLABFOLDDIR}
 colabfold-conda/bin/python3.10 -m colabfold.download
