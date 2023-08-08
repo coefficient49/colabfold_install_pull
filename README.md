@@ -11,7 +11,7 @@ bash install.sh
 for running on MSA ec2
 ```bash
 source init.vmtouch.profile
-screen -d -m -L bash searching.protocol
+screen -d -m -L bash search_protocol.sh
 ```
 
 
