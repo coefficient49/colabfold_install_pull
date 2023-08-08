@@ -31,6 +31,6 @@ mv msas/$BASENAME/0.a3m msas/$BASENAME/$BASENAME.a3m
 aws s3 mv msas/$BASENAME/$BASENAME.a3m s3://jchen-af-storage/msa_new/$BASENAME.a3m
 
 
-FILESLEFT=`aws s3 ls jchen-af-storage/fastas_new/ | awk 'length($4)>0 {print$4}}' | wc -l`
+FILESLEFT=`aws s3 ls jchen-af-storage/fastas_new/ | awk 'length($4)>0 {print$4}' | wc -l`
 
 done
