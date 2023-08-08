@@ -11,10 +11,10 @@ bash install.sh
 make sure your AWS CLI is setup correctly
 
 run
-```python
+```bash
 aws configure
 ```
-
+get your tokens from aws console. or speak with Jeron for setting up environmental variables.
 
 for running MSA on EC2
 ```bash
