@@ -25,7 +25,7 @@ mv msas/$BASENAME/0.a3m msas/$BASENAME/$BASENAME.a3m
 
 
 ## upload to s3 for another ec2 instance to process 
-aws s3 mv pdbs/$BASENAME/ s3://jchen-af-storage/pdbs/$BASENAME --recursive
+aws s3 mv msas/$BASENAME/ s3://jchen-af-storage/pdbs/$BASENAME --recursive
 
 
 FILESLEFT=`aws s3 ls jchen-af-storage/msa_new/ | awk 'length($4)>0 {print$4}' | wc -l`
