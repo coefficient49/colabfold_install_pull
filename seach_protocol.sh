@@ -1,5 +1,5 @@
 
-FILESLEFT=`aws s3 ls jchen-af-storage/fastas_new/ | awk 'length($4)>0 {print$4}}' | wc -l`
+FILESLEFT=`aws s3 ls jchen-af-storage/fastas_new/ | awk 'length($4)>0 {print$4}' | wc -l`
 
 while (($FILESLEFT > 0))
 do
