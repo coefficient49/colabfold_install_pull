@@ -6,6 +6,9 @@ for installation
 rm project_install -rf
 git clone https://github.com/coefficient49/project_install.git
 cp project_install/* .
+
+```
+```
 bash install.sh
 ```
 
