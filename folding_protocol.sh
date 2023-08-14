@@ -17,8 +17,8 @@ BASENAME=`basename $FILE .a3m`
 
 
 ## run msa geneation
-colabfold_batch  --templates --num-seeds 2 --model-type alphafold2_multimer_v3  msas/$FILE msas/$BASENAME
-
+# colabfold_batch  --templates --num-seeds 2 --model-type alphafold2_multimer_v3  msas/$FILE msas/$BASENAME
+colabfold_batch  --templates --num-seeds 2 --model-type alphafold2_multimer_v3  msas/$FILE msas/$BASENAME --num-recycle 8 --recycle-early-stop-tolerance 1
 
 ## fix naming issue
 mv msas/$BASENAME/0.a3m msas/$BASENAME/$BASENAME.a3m
@@ -31,4 +31,5 @@ aws s3 mv msas/$BASENAME/ s3://jchen-af-storage/pdbs/$BASENAME --recursive
 FILESLEFT=`aws s3 ls jchen-af-storage/msa_new/ | awk 'length($4)>0 {print$4}' | wc -l`
 
 done
+
 
