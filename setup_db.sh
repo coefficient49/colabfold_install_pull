@@ -15,7 +15,8 @@ if [ ! -f UNIREF30_READY ]; then
 fi
 
 if [ ! -f COLABDB_READY ]; then
-  downloadFile "https://wwwuser.gwdg.de/~compbiol/colabfold/colabfold_envdb_202108.tar.gz" "colabfold_envdb_202108.tar.gz"
+  # downloadFile "https://wwwuser.gwdg.de/~compbiol/colabfold/colabfold_envdb_202108.tar.gz" "colabfold_envdb_202108.tar.gz"
+  aws s3 cp s3://jchen-bucket/colabfold_envdb_202108.tar.gz .
   tar xzvf "colabfold_envdb_202108.tar.gz"
   mmseqs tsv2exprofiledb "colabfold_envdb_202108" "colabfold_envdb_202108_db"
   # TODO: split memory value for createindex?
