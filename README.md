@@ -24,6 +24,15 @@ for running MSA on EC2
 ```bash
 source init.profile
 ```
+set up the db
+```bash
+mkdir db -p
+cd db
+bash ../setup_db.sh
+cd ..
+```
+
+
 deprecated:
 ```
 source init.vmtouch.profile
