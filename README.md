@@ -23,7 +23,13 @@ get your tokens from aws console. or speak with Jeron for setting up environment
 for running MSA on EC2
 ```bash
 source init.profile
+```
+deprecated:
+```
 source init.vmtouch.profile
+```
+
+```
 screen -d -m -L bash search_protocol.sh
 ```
 
