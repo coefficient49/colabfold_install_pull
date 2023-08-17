@@ -1,3 +1,4 @@
+sudo vmtouch -f -w -t -l -d -m 1000G db/*.idx
 
 FILESLEFT=`aws s3 ls jchen-af-storage/fastas_new/ | awk 'length($4)>0 {print$4}' | wc -l`
 
