@@ -1,9 +1,14 @@
+AWSFOLDER="$1"
+
+echo $AWSFOLDER
 # sudo vmtouch -f -w -t -l -d -m 1000G db/*.idx
+
+echo "parsing database 1"
 sudo vmtouch -ltdw db/colabfold_envdb_202108_db.idx
+echo "parsing database 2"
 sudo vmtouch -ltdw db/uniref30_2302_db.idx   
 
 
-AWSFOLDER="$1"
 
 FILESLEFT=`aws s3 ls jchen-af-storage/$AWSFOLDER/fastas_new/ | awk 'length($4)>0 {print$4}' | wc -l`
 
