@@ -4,9 +4,9 @@ echo $AWSFOLDER
 # sudo vmtouch -f -w -t -l -d -m 1000G db/*.idx
 
 echo "parsing database 1"
-sudo vmtouch -ltdw db/colabfold_envdb_202108_db.idx
+sudo vmtouch -ltdwv db/colabfold_envdb_202108_db.idx
 echo "parsing database 2"
-sudo vmtouch -ltdw db/uniref30_2302_db.idx   
+sudo vmtouch -ltdwv db/uniref30_2302_db.idx   
 
 
 
