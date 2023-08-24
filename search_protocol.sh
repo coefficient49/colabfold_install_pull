@@ -2,20 +2,23 @@
 sudo vmtouch -ltdw db/colabfold_envdb_202108_db.idx
 sudo vmtouch -ltdw db/uniref30_2302_db.idx   
 
-FILESLEFT=`aws s3 ls jchen-af-storage/fastas_new/ | awk 'length($4)>0 {print$4}' | wc -l`
+
+baseName='$1'
+
+FILESLEFT=`aws s3 ls jchen-af-storage/$baseName_fastas_new/ | awk 'length($4)>0 {print$4}' | wc -l`
 
 while (($FILESLEFT > 0))
 do
 
 ## getting file from s3
-FILE=`aws s3 ls s3://jchen-af-storage/fastas_new/ | awk 'length($4) >0 {print$4}' | head -n 1`
+FILE=`aws s3 ls s3://jchen-af-storage/$baseName_fastas_new/ | awk 'length($4) >0 {print$4}' | head -n 1`
 
 ## downloading file from s3
-aws s3 cp s3://jchen-af-storage/fastas_new/$FILE fastas/$FILE
+aws s3 cp s3://jchen-af-storage/$baseName_fastas_new/$FILE fastas/$FILE
 
 ## transfering downloaded file from the _new folder to the _done folder
 
-aws s3 mv s3://jchen-af-storage/fastas_new/$FILE s3://jchen-af-storage/fastas_done/$FILE
+aws s3 mv s3://jchen-af-storage/$baseName_fastas_new/$FILE s3://jchen-af-storage/$baseName_fastas_done/$FILE
 
 BASENAME=`basename $FILE .fasta`
 
@@ -31,9 +34,9 @@ mv msas/$BASENAME/0.a3m msas/$BASENAME/$BASENAME.a3m
 
 
 ## upload to s3 for another ec2 instance to process 
-aws s3 mv msas/$BASENAME/$BASENAME.a3m s3://jchen-af-storage/msa_new/$BASENAME.a3m
+aws s3 mv msas/$BASENAME/$BASENAME.a3m s3://jchen-af-storage/$baseName_msa_new/$BASENAME.a3m
 
 
-FILESLEFT=`aws s3 ls jchen-af-storage/fastas_new/ | awk 'length($4)>0 {print$4}' | wc -l`
+FILESLEFT=`aws s3 ls jchen-af-storage/$baseName_fastas_new/ | awk 'length($4)>0 {print$4}' | wc -l`
 
 done
