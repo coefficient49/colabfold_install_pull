@@ -38,6 +38,8 @@ deprecated:
 source init.vmtouch.profile
 ```
 
+run this directly. vmtouch built in.
+
 ```
 screen -d -m -L bash search_protocol.sh
 ```
