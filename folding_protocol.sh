@@ -1,5 +1,8 @@
 AWSFOLDER="$1"
 CYCLES="$2"
+
+echo "$CYCLES cycles"
+
 FILESLEFT=`aws s3 ls jchen-af-storage/$AWSFOLDER/msa_new/ | awk 'length($4)>0 {print$4}' | wc -l`
 
 while (($FILESLEFT > 0))
