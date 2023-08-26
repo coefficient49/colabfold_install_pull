@@ -23,7 +23,7 @@ BASENAME=`basename $FILE .a3m`
 
 ## run msa geneation
 # colabfold_batch  --templates --num-seeds 2 --model-type alphafold2_multimer_v3  msas/$FILE msas/$BASENAME
-colabfold_batch  --templates --num-seeds 2 --model-type alphafold2_multimer_v3  --num-recycle $CYCLES  msas/$FILE msas/$BASENAME
+colabfold_batch  --templates --num-seeds 2 --model-type alphafold2_multimer_v3  --save-recycles --num-recycle $CYCLES  msas/$FILE msas/$BASENAME 
 
 ## fix naming issue
 mv msas/$BASENAME/0.a3m msas/$BASENAME/$BASENAME.a3m
