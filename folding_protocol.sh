@@ -1,4 +1,5 @@
 AWSFOLDER="$1"
+CYCLES="$2"
 FILESLEFT=`aws s3 ls jchen-af-storage/$AWSFOLDER/msa_new/ | awk 'length($4)>0 {print$4}' | wc -l`
 
 while (($FILESLEFT > 0))
@@ -19,7 +20,7 @@ BASENAME=`basename $FILE .a3m`
 
 ## run msa geneation
 # colabfold_batch  --templates --num-seeds 2 --model-type alphafold2_multimer_v3  msas/$FILE msas/$BASENAME
-colabfold_batch  --templates --num-seeds 2 --model-type alphafold2_multimer_v3  --num-recycle 8  msas/$FILE msas/$BASENAME
+colabfold_batch  --templates --num-seeds 2 --model-type alphafold2_multimer_v3  --num-recycle $CYCLES  msas/$FILE msas/$BASENAME
 
 ## fix naming issue
 mv msas/$BASENAME/0.a3m msas/$BASENAME/$BASENAME.a3m
