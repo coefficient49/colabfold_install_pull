@@ -8,6 +8,10 @@ echo $AWSFOLDER
 # echo "parsing database 2"
 # sudo vmtouch -ltdwv db/uniref30_2302_db.idx   
 
+# echo "parsing database 1"
+# screen -d -m -L sudo vmtouch -ltd db/colabfold_envdb_202108_db.idx
+# echo "parsing database 2"
+# screen -d -m -L sudo vmtouch -ltd db/uniref30_2302_db.idx   
 
 
 FILESLEFT=`aws s3 ls jchen-af-storage/$AWSFOLDER/fastas_new/ | awk 'length($4)>0 {print$4}' | wc -l`
