@@ -1,6 +1,6 @@
 AWSFOLDER="$1"
 CYCLES="$2"
-
+source init.profile
 rm screenlog.0
 echo "$CYCLES cycles"
 
