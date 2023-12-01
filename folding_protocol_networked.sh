@@ -34,7 +34,7 @@ colabfold_batch  \
     --save-recycles \
     --num-recycle $CYCLES  \
     fastas_new/$FILE \
-    fastas_new/$BASENAME  \
+    pdbs/$BASENAME  \
     --host-url http://172.16.100.86:8502
 
 ## fix naming issue
@@ -42,7 +42,7 @@ colabfold_batch  \
 
 
 ## upload to s3 for another ec2 instance to process 
-aws s3 mv fastas_new/$BASENAME/ s3://jchen-af-storage/$AWSFOLDER/pdbs/$BASENAME --recursive
+aws s3 mv pdbs/$BASENAME/ s3://jchen-af-storage/$AWSFOLDER/pdbs/$BASENAME --recursive
 
 
 FILESLEFT=`aws s3 ls jchen-af-storage/$AWSFOLDER/msa_new/ | awk 'length($4)>0 {print$4}' | wc -l`
