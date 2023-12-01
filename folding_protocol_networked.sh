@@ -45,7 +45,7 @@ colabfold_batch  \
 aws s3 mv pdbs/$BASENAME/ s3://jchen-af-storage/$AWSFOLDER/pdbs/$BASENAME --recursive
 
 
-FILESLEFT=`aws s3 ls jchen-af-storage/$AWSFOLDER/msa_new/ | awk 'length($4)>0 {print$4}' | wc -l`
+FILESLEFT=`aws s3 ls jchen-af-storage/$AWSFOLDER/fastas_new/ | awk 'length($4)>0 {print$4}' | wc -l`
 
 done
 
